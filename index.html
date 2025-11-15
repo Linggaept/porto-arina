@@ -11,45 +11,65 @@
       crossorigin="anonymous"
     />
     <style>
-      body {
+      #page-1 {
         background-image: url(assets/img/page-1/background\ 1.png);
         background-size: cover;
         background-repeat: no-repeat;
       }
     </style>
   </head>
-  <body class="min-vh-100">
-    <div id="navbar-placeholder"></div>
+  <body class="">
+    <section id="page-1" class="min-vh-100">
+      <div id="navbar-placeholder"></div>
+      <img
+        src="assets/img/page-1/nama-intro.png"
+        alt="nama-intro"
+        class="d-block mx-auto mb-10"
+      />
+      <img
+        src="assets/img/page-1/jalan-1.png"
+        alt=""
+        style="position: absolute; left: 0; bottom: 0; width: 100%; z-index: 10"
+      />
+      <img
+        src="assets/img/page-1/kota.png"
+        alt=""
+        style="
+          position: absolute;
+          z-index: 5;
+          left: 50%;
+          bottom: 8rem;
+          transform: translateX(-50%);
+          width: 100%;
+        "
+      />
+      <img
+        src="assets/img/page-1/pegang-jam.png"
+        alt="pegang-jam"
+        class="position-absolute"
+        style="
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 8rem;
+          width: 20%;
+          z-index: 15;
+        "
+      />
+      <img
+        src="assets/img/page-1/portofolio.png"
+        alt="portofolio"
+        class="position-absolute"
+        style="
+          left: 47%;
+          transform: translateX(-50%);
+          bottom: 25rem;
+          width: 30%;
+          z-index: 15;
+        "
+      />
+    </section>
   </body>
 
-  <img
-    src="assets/img/page-1/nama-intro.png"
-    alt="nama-intro"
-    class="d-block mx-auto mb-10"
-  />
-  <img
-    src="assets/img/page-1/jalan-1.png"
-    alt=""
-    style="position: absolute; left: 0; bottom: 0; width: 100%; z-index: 10"
-  />
-  <img
-    src="assets/img/page-1/kota.png"
-    alt=""
-    style="
-      position: absolute;
-      z-index: 5;
-      left: 50%;
-      bottom: 8rem;
-      transform: translateX(-50%);
-      width: 100%;
-    "
-  />
-  <img
-    src="assets/img/page-1/pegang-jam.png"
-    alt="pegang-jam"
-    class="position-absolute"
-    style="left: 50%; transform: translateX(-50%); bottom: 8rem; width: 17%; z-index: 15; "
-  />
   <script>
     fetch("partials/navbar.html")
       .then((response) => response.text())
