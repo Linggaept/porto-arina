@@ -11,12 +11,43 @@
       crossorigin="anonymous"
     />
     <style>
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      section {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100vw;
+        margin: 0 !important;
+        padding: 0;
+        position: relative;
+      }
+
+      section.row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+      }
 
       #page-1 {
         background-image: url(assets/img/page-1/background\ 1.png);
-        background-size: cover;
-        background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
       }
@@ -40,6 +71,115 @@
 
       .kota-responsive {
         width: 100%;
+      }
+
+      /* Fade Up Animation */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px) translateX(-50%);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) translateX(-50%);
+        }
+      }
+
+      @keyframes fadeUpNoTranslate {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-up {
+        opacity: 0;
+        animation: fadeUpNoTranslate 1s ease-out forwards;
+      }
+
+      /* Khusus untuk elemen yang sudah punya translateX */
+      .kota-responsive.fade-up,
+      .pegang-jam-responsive.fade-up,
+      .portofolio-responsive.fade-up {
+        animation: fadeUp 1s ease-out forwards;
+      }
+
+      /* Myself Image Hover Effect */
+      .myself-img {
+        transition: transform 0.3s ease;
+        animation: subtleBlink 3s ease-in-out infinite;
+        cursor: pointer;
+      }
+
+      .myself-img:hover {
+        transform: scale(1.05);
+        animation: none;
+      }
+
+      /* Subtle Blink Animation */
+      @keyframes subtleBlink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.85;
+        }
+      }
+
+      /* Typing Animation */
+      .typing-text {
+        opacity: 0;
+      }
+
+      .typing-text.active {
+        opacity: 1;
+      }
+
+      .typing-paragraph {
+        opacity: 0;
+        overflow: hidden;
+        white-space: normal;
+        margin-bottom: 1rem;
+      }
+
+      .typing-paragraph.typing {
+        opacity: 1;
+        animation: typing 3s steps(150) forwards, blink 0.75s step-end infinite;
+        border-right: 2px solid white;
+      }
+
+      .typing-paragraph.typed {
+        opacity: 1;
+        border-right: none;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      /* Fade Up with data-delay support */
+      .fade-up[data-delay] {
+        opacity: 0;
+      }
+
+      .fade-up.animate {
+        animation: fadeUpNoTranslate 1s ease-out forwards;
       }
 
       /* Mobile styles - zoom 100% */
@@ -99,7 +239,7 @@
       }
     </style>
   </head>
-  <body>
+  <body style="margin: 0; padding: 0; overflow-x: hidden">
     <div style="position: fixed; width: 100%; top: 0; left: 0; z-index: 1000">
       <div id="navbar-placeholder"></div>
     </div>
@@ -107,64 +247,72 @@
       <img
         src="assets/img/page-1/nama-intro.png"
         alt="nama-intro"
-        style="margin-top: 3rem"
-        class="d-block mx-auto nama-intro-responsive"
+        style="margin-top: 3rem; animation-delay: 0.3s"
+        class="d-block mx-auto nama-intro-responsive fade-up"
       />
       <img
         src="assets/img/page-1/jalan-1.png"
         alt="jalan-1"
-        class="jalan-responsive"
-        style="position: absolute; left: 0; bottom: 0; z-index: 10"
+        class="jalan-responsive fade-up"
+        style="
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          z-index: 10;
+          animation-delay: 0.6s;
+        "
       />
       <img
         src="assets/img/page-1/kota.png"
         alt="kota"
-        class="kota-responsive"
+        class="kota-responsive fade-up"
         style="
           position: absolute;
           z-index: 5;
           left: 50%;
           bottom: 8rem;
           transform: translateX(-50%);
+          animation-delay: 0.9s;
         "
       />
       <img
         src="assets/img/page-1/pegang-jam.png"
         alt="pegang-jam"
-        class="position-absolute pegang-jam-responsive"
+        class="position-absolute pegang-jam-responsive fade-up"
         style="
           left: 50%;
           transform: translateX(-50%);
           bottom: 8rem;
           z-index: 15;
+          animation-delay: 1.2s;
         "
       />
       <img
         src="assets/img/page-1/portofolio.png"
         alt="portofolio"
-        class="position-absolute portofolio-responsive"
+        class="position-absolute portofolio-responsive fade-up"
         style="
           left: 47%;
           transform: translateX(-50%);
           bottom: 25rem;
           z-index: 15;
+          animation-delay: 1.5s;
         "
       />
     </section>
 
     <section
-      id="page-2"
+      id="about-me"
       class="min-vh-100 row justify-content-center"
-      style="
-        background-image: url(assets/img/page-2/bg-2.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100%;
-      "
+      style="background-image: url(assets/img/page-2/bg-2.png)"
     >
       <div class="col-md-4">
-        <img src="assets/img/page-2/myself.png" alt="" style="padding: 5rem" />
+        <img
+          src="assets/img/page-2/myself.png"
+          alt=""
+          style="padding: 5rem"
+          class="myself-img"
+        />
       </div>
       <div class="col-md-8 position-relative">
         <div class="" style="padding: 5rem">
@@ -173,33 +321,40 @@
               src="assets/img/page-2/hello.png"
               alt=""
               style="padding: 10px; width: 17rem"
+              class="fade-up"
+              data-delay="0.2"
             />
             <img
               src="assets/img/page-2/my-name-is.png"
               alt=""
               style="padding: 0px; width: 15rem"
+              class="fade-up"
+              data-delay="0.4"
             />
           </div>
           <img
             src="assets/img/page-2/arina-page-2.png"
             alt=""
             style="padding: 0px; width: 40rem; margin-top: -2rem"
+            class="fade-up"
+            data-delay="0.6"
           />
 
           <div
-            class="self-description fw-bolder text-white"
+            class="self-description fw-bolder text-white typing-text"
             style="max-width: 600px"
+            data-delay="0.8"
           >
-            <p>
-              I’m an Art Design student who's super into the creative industry,
-              it’s where I can truly express myself, turning my imagination and
+            <p class="typing-paragraph">
+              I'm an Art Design student who's super into the creative industry,
+              it's where I can truly express myself, turning my imagination and
               how I see the other side of the world into art.
             </p>
-            <p>
-              Through this portfolio, I’m excited to share some of my favorite
-              artworks that I’ve been working on over time. Each piece
+            <p class="typing-paragraph">
+              Through this portfolio, I'm excited to share some of my favorite
+              artworks that I've been working on over time. Each piece
               represents a unique journey, where I got to explore and experiment
-              with different ideas, techniques, and emotions. It’s a reflection
+              with different ideas, techniques, and emotions. It's a reflection
               of my growth as an artist and how my imagination comes to life
               through design.
             </p>
@@ -209,19 +364,16 @@
           src="assets/img/page-2/grass-and-me.png"
           alt="grass-and-me"
           style="position: absolute; bottom: 0; right: 0; z-index: 100"
+          class="fade-up"
+          data-delay="1"
         />
       </div>
     </section>
 
     <section
-      id="page-3"
+      id="curriculum-vitae"
       class="min-vh-100 row justify-content-center"
-      style="
-        background-image: url(assets/img/page-3/bg\ 3.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      "
+      style="background-image: url(assets/img/page-3/bg\ 3.jpg)"
     >
       <img
         src="assets/img/page-3/cv.png"
@@ -236,13 +388,10 @@
     </section>
 
     <section
-      id="page-4"
+      id="photography"
       class="min-vh-100"
       style="
         background-image: url(assets/img/page-4/bg\ 4.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
         padding: 2rem 0;
       "
     >
@@ -382,10 +531,10 @@
                 style="font-size: 9px; margin-top: -1.5rem"
                 class="fw-bolder text-white"
               >
-                This photo shows a rice farmer or “Petani Sawah” at Payakumbuh
+                This photo shows a rice farmer or "Petani Sawah" at Payakumbuh
                 Situjuah working under the hot sun. It made me realize that even
                 on tough, hot days, the joy of providing food for others, like
-                rice, makes all the hard work worth it. It’s fulfilling to know
+                rice, makes all the hard work worth it. It's fulfilling to know
                 our efforts help others.
               </p>
             </div>
@@ -410,15 +559,11 @@
     </section>
 
     <section
-      id="page-5"
+      id="mini-movie"
       class="min-vh-100"
       style="
         background-image: url(assets/img/page-5/bg\ 5.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
         padding: 2rem 0;
-        width: 100%;
       "
     >
       <div class="row justify-content-center">
@@ -497,15 +642,11 @@
     </section>
 
     <section
-      id="page-6"
+      id="3d-artworks"
       class="min-vh-100"
       style="
         background-image: url(assets/img/page-6/bg\ 6.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
         padding: 2rem 0;
-        width: 100%;
       "
     >
       <div class="row justify-content-center">
@@ -592,29 +733,182 @@
     </section>
 
     <section
-      id="page-7"
+      id="illustration-design"
       class="min-vh-100"
       style="
         background-image: url(assets/img/page-7/bg\ 7.jpeg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
         padding: 2rem 0;
-        width: 100%;
       "
-    ></section>
+    >
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <img
+            src="assets/img/page-7/illustration design.png"
+            alt=""
+            style="width: auto; height: auto; margin-top: 3rem"
+          />
+        </div>
+      </div>
+
+      <div class="row" style="position: relative; top: 4rem; left: 5rem">
+        <div class="col-md-6">
+          <img
+            src="assets/img/page-7/mural.png.PNG"
+            alt=""
+            class="img-fluid"
+            style="max-width: 45rem"
+          />
+        </div>
+        <div class="col-md-6">
+          <img
+            src="assets/img/page-7/final illustration.jpg.jpg"
+            alt=""
+            class="img-fluid"
+            style="max-width: 25rem; margin-left: 5rem"
+          />
+        </div>
+      </div>
+
+      <div class="" style="position: absolute; max-width: 100%; top: 10">
+        <div class="row mx-auto" style="max-width: 90%; margin-top: 5rem">
+          <div class="col-md-6">
+            <img
+              src="assets/img/page-7/mural harmony.png"
+              alt=""
+              class="p-0 m-0 d-block"
+              style="margin-left: 0; margin-right: auto"
+            />
+            <p
+              style="font-size: 11px; margin-top: -1.5rem"
+              class="fw-bolder text-white"
+            >
+              For my final exam illustration design, I created a mural with the
+              theme of 'Harmony,' inspired by Mary Blair's 'It’s a Small World,'
+              which unites different cultures. I adapted this to Indonesian
+              culture, highlighting its diversity. In the story, a Minang person
+              is worried about rowing his boat, fearing failure, but other
+              cultures encourage him, reflecting the supportive and humble
+              spirit of Indonesians. The message is that with support from
+              others, fears can be overcome, and challenges can be faced
+              together.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="assets/img/page-7/discovering my Art style.png.png"
+              alt=""
+              class="p-0 m-0 d-block"
+              style="margin-left: 0; margin-right: auto"
+            />
+            <p
+              style="font-size: 11px; margin-top: -1.5rem"
+              class="fw-bolder text-white"
+            >
+              In this artwork, I explore my evolving art style by illustrating
+              one of my long-time daydreams: roller-skating or walking through a
+              peaceful forest and befriending animals along the way. Soft colors
+              and flowing lines capture the calm, adventurous mood I often
+              imagine. This piece reflects my love for nature, escapism, and
+              building little imaginary worlds. Through it, I show how art helps
+              me discover and embrace the wild, whimsical parts of myself.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact-me"
+      class="min-vh-100"
+      style="
+        background-image: url(assets/img/page-8/bg\ 8.jpg);
+        padding: 2rem 0;
+      "
+    >
+      <div class="row justify-content-start" style="margin-left: 80px">
+        <div class="col-auto">
+          <img
+            src="assets/img/page-8/thank you.png"
+            alt=""
+            style="
+              width: auto;
+              height: auto;
+              margin-top: 3rem;
+              margin-bottom: 0;
+            "
+          />
+
+          <p
+            class="text-white fw-normal"
+            style="font-size: 25px; max-width: 40%; margin-top: -4rem"
+          >
+            If anything catches your eye and you’d like to connect, just reach
+            me through the contact panel on the right.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="d-flex flex-column justify-content-end gap-4"
+        style="position: absolute; right: 15%; transform: translateY(-90%)"
+      >
+        <a
+          href="mailto:email@example.com"
+          class="d-flex align-items-center gap-4"
+          style="width: 90%"
+        >
+          <img src="assets/img/page-8/email.png" alt="" style="width: 45px" />
+          <p>+62 821-1245-5831</p>
+        </a>
+        <a
+          href="https://www.instagram.com/username"
+          target="_blank"
+          class="d-flex align-items-center gap-4"
+          style="width: 80%"
+        >
+          <img src="assets/img/page-8/ig.png" alt="" style="width: 45px" />
+          <p>amethystareena@gmail.com</p>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/username"
+          target="_blank"
+          class="d-flex align-items-center gap-4"
+          style="width: 80%"
+        >
+          <img src="assets/img/page-8/in.png" alt="" style="width: 45px" />
+          <p>@mareenasauce</p>
+        </a>
+        <a
+          href="https://wa.me/1234567890"
+          target="_blank"
+          class="d-flex align-items-center gap-4"
+          style="width: 90%"
+        >
+          <img src="assets/img/page-8/wa.png" alt="" style="width: 45px" />
+          <p>Arina Kamila Nadhira</p>
+        </a>
+      </div>
+
+      <img
+        src="assets/img/page-8/road.png"
+        alt=""
+        style="width: 100%; margin-top: 10rem"
+      />
+      <img
+        src="assets/img/page-8/skate.png"
+        alt=""
+        style="
+          position: absolute;
+          bottom: 10rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 320px;
+        "
+      />
+    </section>
   </body>
 
-  <script>
-    fetch("partials/navbar.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar-placeholder").innerHTML = html;
-      })
-      .catch((error) => {
-        console.error("Error fetching navbar:", error);
-      });
-  </script>
+  <script src="assets/js/script.js"></script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

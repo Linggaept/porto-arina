@@ -1,0 +1,117 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  margin: 0 !important;
+  padding: 0;
+  position: relative;
+}
+
+section.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
+#page-1 {
+  background-image: url(assets/img/page-1/background\ 1.png);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Default styles untuk desktop - tidak diubah */
+.nama-intro-responsive {
+  width: auto;
+}
+
+.jalan-responsive {
+  width: 100%;
+}
+
+.portofolio-responsive {
+  width: 30%;
+}
+
+.pegang-jam-responsive {
+  width: 20%;
+}
+
+.kota-responsive {
+  width: 100%;
+}
+
+/* Mobile styles - zoom 100% */
+@media screen and (max-width: 768px) {
+  .nama-intro-responsive {
+    width: 60%;
+    max-width: 300px;
+  }
+
+  .jalan-responsive {
+    width: 100rem;
+    height: 10rem;
+  }
+
+  .kota-responsive {
+    width: 100%;
+    bottom: 100rem !important;
+  }
+
+  .pegang-jam-responsive {
+    width: 40%;
+    max-width: 200px;
+    bottom: 8rem !important;
+  }
+
+  .portofolio-responsive {
+    width: 50%;
+    max-width: 250px;
+    bottom: 18rem !important;
+    left: 50% !important;
+  }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 576px) {
+  .nama-intro-responsive {
+    width: 70%;
+    max-width: 280px;
+  }
+
+  .pegang-jam-responsive {
+    width: 45%;
+    bottom: 10rem !important;
+    left: 14rem !important;
+  }
+
+  .portofolio-responsive {
+    width: 65%;
+    bottom: 20rem !important;
+    right: 50% !important;
+  }
+
+  .kota-responsive {
+    bottom: 8.5rem !important;
+    width: 110% !important;
+  }
+}
