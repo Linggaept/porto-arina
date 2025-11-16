@@ -11,63 +11,598 @@
       crossorigin="anonymous"
     />
     <style>
+
+
       #page-1 {
         background-image: url(assets/img/page-1/background\ 1.png);
         background-size: cover;
         background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Default styles untuk desktop - tidak diubah */
+      .nama-intro-responsive {
+        width: auto;
+      }
+
+      .jalan-responsive {
+        width: 100%;
+      }
+
+      .portofolio-responsive {
+        width: 30%;
+      }
+
+      .pegang-jam-responsive {
+        width: 20%;
+      }
+
+      .kota-responsive {
+        width: 100%;
+      }
+
+      /* Mobile styles - zoom 100% */
+      @media screen and (max-width: 768px) {
+        .nama-intro-responsive {
+          width: 60%;
+          max-width: 300px;
+        }
+
+        .jalan-responsive {
+          width: 100rem;
+          height: 10rem;
+        }
+
+        .kota-responsive {
+          width: 100%;
+          bottom: 100rem !important;
+        }
+
+        .pegang-jam-responsive {
+          width: 40%;
+          max-width: 200px;
+          bottom: 8rem !important;
+        }
+
+        .portofolio-responsive {
+          width: 50%;
+          max-width: 250px;
+          bottom: 18rem !important;
+          left: 50% !important;
+        }
+      }
+
+      /* Extra small devices */
+      @media screen and (max-width: 576px) {
+        .nama-intro-responsive {
+          width: 70%;
+          max-width: 280px;
+        }
+
+        .pegang-jam-responsive {
+          width: 45%;
+          bottom: 10rem !important;
+          left: 14rem !important;
+        }
+
+        .portofolio-responsive {
+          width: 65%;
+          bottom: 20rem !important;
+          right: 50% !important;
+        }
+
+        .kota-responsive {
+          bottom: 8.5rem !important;
+          width: 110% !important;
+        }
       }
     </style>
   </head>
-  <body class="">
-    <section id="page-1" class="min-vh-100">
+  <body>
+    <div style="position: fixed; width: 100%; top: 0; left: 0; z-index: 1000">
       <div id="navbar-placeholder"></div>
+    </div>
+    <section id="page-1" class="min-vh-100">
       <img
         src="assets/img/page-1/nama-intro.png"
         alt="nama-intro"
-        class="d-block mx-auto mb-10"
+        style="margin-top: 3rem"
+        class="d-block mx-auto nama-intro-responsive"
       />
       <img
         src="assets/img/page-1/jalan-1.png"
-        alt=""
-        style="position: absolute; left: 0; bottom: 0; width: 100%; z-index: 10"
+        alt="jalan-1"
+        class="jalan-responsive"
+        style="position: absolute; left: 0; bottom: 0; z-index: 10"
       />
       <img
         src="assets/img/page-1/kota.png"
-        alt=""
+        alt="kota"
+        class="kota-responsive"
         style="
           position: absolute;
           z-index: 5;
           left: 50%;
           bottom: 8rem;
           transform: translateX(-50%);
-          width: 100%;
         "
       />
       <img
         src="assets/img/page-1/pegang-jam.png"
         alt="pegang-jam"
-        class="position-absolute"
+        class="position-absolute pegang-jam-responsive"
         style="
           left: 50%;
           transform: translateX(-50%);
           bottom: 8rem;
-          width: 20%;
           z-index: 15;
         "
       />
       <img
         src="assets/img/page-1/portofolio.png"
         alt="portofolio"
-        class="position-absolute"
+        class="position-absolute portofolio-responsive"
         style="
           left: 47%;
           transform: translateX(-50%);
           bottom: 25rem;
-          width: 30%;
           z-index: 15;
         "
       />
     </section>
+
+    <section
+      id="page-2"
+      class="min-vh-100 row justify-content-center"
+      style="
+        background-image: url(assets/img/page-2/bg-2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+      "
+    >
+      <div class="col-md-4">
+        <img src="assets/img/page-2/myself.png" alt="" style="padding: 5rem" />
+      </div>
+      <div class="col-md-8 position-relative">
+        <div class="" style="padding: 5rem">
+          <div class="row" style="margin-top: 5rem">
+            <img
+              src="assets/img/page-2/hello.png"
+              alt=""
+              style="padding: 10px; width: 17rem"
+            />
+            <img
+              src="assets/img/page-2/my-name-is.png"
+              alt=""
+              style="padding: 0px; width: 15rem"
+            />
+          </div>
+          <img
+            src="assets/img/page-2/arina-page-2.png"
+            alt=""
+            style="padding: 0px; width: 40rem; margin-top: -2rem"
+          />
+
+          <div
+            class="self-description fw-bolder text-white"
+            style="max-width: 600px"
+          >
+            <p>
+              I’m an Art Design student who's super into the creative industry,
+              it’s where I can truly express myself, turning my imagination and
+              how I see the other side of the world into art.
+            </p>
+            <p>
+              Through this portfolio, I’m excited to share some of my favorite
+              artworks that I’ve been working on over time. Each piece
+              represents a unique journey, where I got to explore and experiment
+              with different ideas, techniques, and emotions. It’s a reflection
+              of my growth as an artist and how my imagination comes to life
+              through design.
+            </p>
+          </div>
+        </div>
+        <img
+          src="assets/img/page-2/grass-and-me.png"
+          alt="grass-and-me"
+          style="position: absolute; bottom: 0; right: 0; z-index: 100"
+        />
+      </div>
+    </section>
+
+    <section
+      id="page-3"
+      class="min-vh-100 row justify-content-center"
+      style="
+        background-image: url(assets/img/page-3/bg\ 3.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      "
+    >
+      <img
+        src="assets/img/page-3/cv.png"
+        alt="cv"
+        style="
+          position: relative;
+          max-width: 80%;
+          height: 80%;
+          margin-top: 5rem;
+        "
+      />
+    </section>
+
+    <section
+      id="page-4"
+      class="min-vh-100"
+      style="
+        background-image: url(assets/img/page-4/bg\ 4.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 2rem 0;
+      "
+    >
+      <!-- Header Image -->
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <img
+            src="assets/img/page-4/photography.png"
+            alt=""
+            style="width: auto; height: auto; margin-top: 3rem"
+          />
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div
+        class="container-fluid"
+        style="margin-top: 3rem; padding: 0 5rem 0rem 8rem"
+      >
+        <div class="row justify-content-center align-items-start">
+          <!-- Gallery Section (Left) -->
+          <div class="col-md-7 col-lg-8">
+            <!-- First Row of Images -->
+            <div class="row g-3 mb-3">
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/jeruk nipis 1.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 100%; height: auto; object-fit: cover"
+                />
+              </div>
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/jeruk nipis 2.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 100%; height: auto; object-fit: cover"
+                />
+              </div>
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/sawah 1.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 100%; height: auto; object-fit: cover"
+                />
+              </div>
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/sawah 2.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 50%; height: 90%; object-fit: cover"
+                />
+              </div>
+            </div>
+
+            <!-- Second Row of Images -->
+            <div class="row g-3">
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/jeruk nipis 3.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 100%; height: auto; object-fit: cover"
+                />
+              </div>
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/jeruk nipis 4.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 100%; height: auto; object-fit: cover"
+                />
+              </div>
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/sawah 3.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 45%; height: 98%; object-fit: cover"
+                />
+              </div>
+              <div class="col-3">
+                <img
+                  src="assets/img/page-4/sawah 4.png"
+                  alt=""
+                  class="img-fluid"
+                  style="width: 100%; height: auto; object-fit: cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Portrait Image (Right) -->
+          <div class="col-md-5 col-lg-4 text-center">
+            <img
+              src="assets/img/page-4/beringer.png.png"
+              alt=""
+              class="img-fluid"
+              style="width: 70%; max-width: 290px; height: auto"
+            />
+          </div>
+        </div>
+
+        <div class="" style="position: absolute; max-width: 100%; top: 10">
+          <div class="row mx-auto" style="max-width: 90%; margin-top: px">
+            <div class="col-md-4">
+              <img
+                src="assets/img/page-4/ibu petani jeruk nipis.png"
+                alt=""
+                class="p-0 m-0 d-block"
+              />
+              <p
+                style="font-size: 9px; margin-top: -1.5rem"
+                class="fw-bolder text-white"
+              >
+                For my photography assignment, I titled the photo 'Ibu Petani
+                Jeruk Nipis,' featuring Ibu Rifda, a 79-year-old former teacher
+                who transitioned to farming after retiring. She now spends her
+                time cultivating a variety of crops, such as rice, cocoa,
+                mangosteen, cucumbers, and limes. On the day this photo was
+                taken, she was in the midst of harvesting her lime crop, a task
+                that brought her a great sense of joy and fulfillment. The image
+                captures the satisfaction and happiness she feels from the
+                fruits of her hard work and dedication to her land.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <img
+                src="assets/img/page-4/petani sawah.png"
+                alt=""
+                class="p-0 m-0 d-block"
+              />
+              <p
+                style="font-size: 9px; margin-top: -1.5rem"
+                class="fw-bolder text-white"
+              >
+                This photo shows a rice farmer or “Petani Sawah” at Payakumbuh
+                Situjuah working under the hot sun. It made me realize that even
+                on tough, hot days, the joy of providing food for others, like
+                rice, makes all the hard work worth it. It’s fulfilling to know
+                our efforts help others.
+              </p>
+            </div>
+            <div class="col-md-4">
+              <img
+                src="assets/img/page-4/beringer.png"
+                alt=""
+                class="p-0 m-0 d-block"
+              />
+              <p
+                style="font-size: 9px; margin-top: -1.5rem"
+                class="fw-bolder text-white"
+              >
+                My friends and I have worked on a project to recreate the
+                'Beringer Advertise Recreation of The Return of Bapteme,'
+                inspired by Louis Le Nain's painting 'The Return of the Baptism.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="page-5"
+      class="min-vh-100"
+      style="
+        background-image: url(assets/img/page-5/bg\ 5.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 2rem 0;
+        width: 100%;
+      "
+    >
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <img
+            src="assets/img/page-5/3d art works.png"
+            alt=""
+            style="width: auto; height: auto; margin-top: 3rem"
+          />
+        </div>
+      </div>
+
+      <div
+        class="d-flex flex-row gap-4"
+        style="position: relative; left: 5rem; top: 5rem"
+      >
+        <img src="assets/img/page-5/3d 1.png.png" alt="" style="width: 25%" />
+        <div class="d-flex flex-column gap-4" style="margin-right: 20px">
+          <img
+            src="assets/img/page-5/3d 2.png.png"
+            alt=""
+            style="width: 120%"
+          />
+          <img
+            src="assets/img/page-5/3d 3.png.png"
+            alt=""
+            style="width: 120%"
+          />
+        </div>
+        <img src="assets/img/page-5/3d 4.png.png" alt="" style="width: 25%" />
+        <img src="assets/img/page-5/3d 5.png.png" alt="" style="width: 25%" />
+      </div>
+
+      <div class="" style="position: absolute; max-width: 100%; top: 10">
+        <div class="row mx-auto" style="max-width: 90%; margin-top: 9rem">
+          <div class="col-md-6">
+            <img
+              src="assets/img/page-5/sakti gonjong ungu.png"
+              alt=""
+              class="p-0 m-0 d-block"
+            />
+            <p
+              style="font-size: 12px; margin-top: -1.5rem"
+              class="fw-bolder text-white"
+            >
+              "Sakti Gonjong Ungu" is the name of my 3D art project for my test.
+              I had to make a model with a fantasy theme, and I wanted to add a
+              culture touch. In my mind, the traditional Minangnese hat for
+              girls who are not married looks a bit like a witch's hat! I
+              thought, "Why not mix the two?" That's how I thought of a
+              Minangkabau witch. This is my cultural vision come to life. I'm
+              happy to have combined the pointed shape of the Minang "gonjong"
+              roof with the mysterious, magical feel of a witch, all in a purple
+              theme.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="assets/img/page-5/purple neighboorhood.png"
+              alt=""
+              class="p-0 m-0 d-block"
+            />
+            <p
+              style="font-size: 12px; margin-top: -1.5rem"
+              class="fw-bolder text-white"
+            >
+              I make this 3D artwork by following a video tutorial from my 3D
+              course. In the course, I learned step by step how to model
+              different elements like a 3D house, trees, roads, and even a car.
+              It was much easier because I could follow the video tutorial,
+              which made the whole process more straightforward.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="page-6"
+      class="min-vh-100"
+      style="
+        background-image: url(assets/img/page-6/bg\ 6.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 2rem 0;
+        width: 100%;
+      "
+    >
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <img
+            src="assets/img/page-6/mini movie.png"
+            alt=""
+            style="width: auto; height: auto; margin-top: 3rem"
+          />
+        </div>
+      </div>
+
+      <div
+        class="d-flex flex-row gap-4"
+        style="position: relative; left: 5rem; top: 7rem; width: 90%"
+      >
+        <div class="d-flex flex-column gap-4">
+          <img src="assets/img/page-6/Asset 6.png" alt="" style="width: 100%" />
+          <img src="assets/img/page-6/Asset 5.png" alt="" style="width: 100%" />
+        </div>
+        <img
+          src="assets/img/page-6/Asset 7.png"
+          alt=""
+          style="width: 30%; height: auto"
+        />
+        <img
+          src="assets/img/page-6/Asset 3.png"
+          alt=""
+          style="width: 30%; height: auto"
+        />
+        <div class="d-flex flex-column gap-4" style="margin-right: 20px">
+          <img src="assets/img/page-6/Asset 4.png" alt="" style="width: 100%" />
+          <img src="assets/img/page-6/Asset 2.png" alt="" style="width: 100%" />
+        </div>
+      </div>
+
+      <div class="" style="position: absolute; max-width: 100%; top: 10">
+        <div class="row mx-auto" style="max-width: 90%; margin-top: 9rem">
+          <div class="col-md-6">
+            <img
+              src="assets/img/page-6/rengkuh.png"
+              alt=""
+              class="p-0 m-0 d-block"
+              style="margin-left: 0; margin-right: auto"
+            />
+            <p
+              style="font-size: 11px; margin-top: -1.5rem"
+              class="fw-bolder text-white"
+            >
+              In this aesthetic project, me and my friends make a mini movie
+              about Alya, a girl who moves from a small hometown to a fast-paced
+              city and quietly struggles with emotional loneliness. She feels
+              unseen, overwhelmed, and unsure how to connect in her new
+              university life. Psychology shows loneliness comes from unmet
+              emotional expectations, especially during big transitions. Slowly,
+              Alya learns independence—cooking, managing money, navigating the
+              city—and discovers that being alone can also mean growing
+              stronger.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="assets/img/page-6/karma.png"
+              alt=""
+              class="p-0 m-0 d-block"
+              style="margin-left: 0; margin-right: auto"
+            />
+            <p
+              style="font-size: 11px; margin-top: -1.5rem"
+              class="fw-bolder text-white"
+            >
+              The movie Karma centers around Annisa Dwi, a high school student
+              who was relentlessly bullied by her peers. However, 10 years
+              later, Annisa becomes a highly successful and wealthy individual,
+              while those who bullied her struggle in life and fail to find
+              success. In a twist of fate, the bullies come back to Annisa,
+              begging for her financial help. Despite their pleas, Annisa
+              refuses to help them, still unable to forgive them for the pain
+              and humiliation they caused her during her high school years.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="page-7"
+      class="min-vh-100"
+      style="
+        background-image: url(assets/img/page-7/bg\ 7.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 2rem 0;
+        width: 100%;
+      "
+    ></section>
   </body>
 
   <script>
