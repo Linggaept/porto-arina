@@ -1,143 +1,90 @@
-fetch("partials/navbar.html")
-  .then((response) => response.text())
-  .then((html) => {
-    document.getElementById("navbar-placeholder").innerHTML = html;
-  })
-  .catch((error) => {
-    console.error("Error fetching navbar:", error);
-  });
-
-// Intersection Observer untuk trigger animasi saat scroll
-const observerOptions = {
-  threshold: 0.2,
-  rootMargin: "0px",
-};
-
-// Observer untuk fade-up elements
-const fadeUpObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const element = entry.target;
-      const delay = element.getAttribute("data-delay") || 0;
-
-      setTimeout(() => {
-        element.classList.add("animate");
-      }, delay * 1000);
-
-      fadeUpObserver.unobserve(element);
-    }
-  });
-}, observerOptions);
-
-// Observer untuk typing text
-const typingObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const element = entry.target;
-      const delay = element.getAttribute("data-delay") || 0;
-
-      setTimeout(() => {
-        element.classList.add("active");
-        const paragraphs = element.querySelectorAll(".typing-paragraph");
-
-        paragraphs.forEach((p, index) => {
-          setTimeout(() => {
-            p.classList.add("typing");
-
-            // Remove typing class and cursor after animation
-            setTimeout(() => {
-              p.classList.remove("typing");
-              p.classList.add("typed");
-            }, 3000);
-          }, index * 3200);
-        });
-      }, delay * 1000);
-
-      typingObserver.unobserve(element);
-    }
-  });
-}, observerOptions);
-
-// Apply observers
 document.addEventListener("DOMContentLoaded", () => {
-  // Fade up elements di page-2
-  document.querySelectorAll("#page-2 .fade-up").forEach((el) => {
-    fadeUpObserver.observe(el);
-  });
+  // Fetch and inject the navbar
+  fetch("partials/navbar.html")
+    .then((response) => response.text())
+    .then((html) => {
+      document.getElementById("navbar-placeholder").innerHTML = html;
 
-  // Typing text
-  document.querySelectorAll(".typing-text").forEach((el) => {
-    typingObserver.observe(el);
-  });
+      // Active navbar link on scroll
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
-  document.querySelectorAll("#mini-movie .scale-in").forEach((el) => {
-    const scaleObserver = new IntersectionObserver((entries) => {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const sectionId = entry.target.getAttribute("id");
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${sectionId}`) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.5, // When 50% of the section is visible
+          rootMargin: "0px",
+        }
+      );
+
+      sections.forEach((section) => {
+        sectionObserver.observe(section);
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching navbar:", error);
+    });
+
+  // Unified Intersection Observer for all animations
+  const animationObserver = new IntersectionObserver(
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = "running";
-          scaleObserver.unobserve(entry.target);
+          const element = entry.target;
+          const delay = parseInt(element.getAttribute("data-delay")) || 0;
+
+          setTimeout(() => {
+            // Trigger typing animation
+            if (element.classList.contains("typing-text")) {
+              element.classList.add("active");
+              const paragraphs =
+                element.querySelectorAll(".typing-paragraph");
+              paragraphs.forEach((p, index) => {
+                setTimeout(() => {
+                  p.classList.add("typing");
+                  // After typing animation, remove class and add 'typed'
+                  setTimeout(() => {
+                    p.classList.remove("typing");
+                    p.classList.add("typed");
+                  }, 3000); // Duration of typing animation
+                }, index * 3200); // Stagger paragraph animations
+              });
+            } else {
+              // Trigger other animations like fade-up, scale-in, etc.
+              element.classList.add("animate");
+            }
+          }, delay);
+
+          // Stop observing the element after animation is triggered
+          observer.unobserve(element);
         }
       });
-    }, observerOptions);
+    },
+    {
+      threshold: 0.1, // Start animation when 10% of the element is visible
+      rootMargin: "0px",
+    }
+  );
 
-    scaleObserver.observe(el);
-  });
+  // Select all elements that need to be animated
+  const animatedElements = document.querySelectorAll(
+    ".fade-up, .scale-in, .slide-from-left, .typing-text"
+  );
 
-  document.querySelectorAll("#mini-movie .fade-up").forEach((el) => {
-    fadeUpObserver.observe(el);
-  });
-
-  document.querySelectorAll("#curriculum-vitae .fade-up").forEach((el) => {
-    fadeUpObserver.observe(el);
-  });
-
-  // Scale in dan fade up elements di photography
-  document.querySelectorAll("#photography .scale-in").forEach((el) => {
-    const scaleObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = "running";
-          scaleObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    scaleObserver.observe(el);
-  });
-
-  document.querySelectorAll("#photography .fade-up").forEach((el) => {
-    fadeUpObserver.observe(el);
-  });
-
-  // Scale in, fade up, dan slide from left elements di contact-me
-  document.querySelectorAll("#contact-me .scale-in").forEach((el) => {
-    const scaleObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = "running";
-          scaleObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    scaleObserver.observe(el);
-  });
-
-  document.querySelectorAll("#contact-me .fade-up").forEach((el) => {
-    fadeUpObserver.observe(el);
-  });
-
-  // Slide from left untuk skate
-  document.querySelectorAll("#contact-me .slide-from-left").forEach((el) => {
-    const slideObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = "running";
-          slideObserver.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    slideObserver.observe(el);
+  // Observe each animated element
+  animatedElements.forEach((el) => {
+    animationObserver.observe(el);
   });
 });

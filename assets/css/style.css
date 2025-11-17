@@ -85,13 +85,16 @@ section.row {
 
 .fade-up {
   opacity: 0;
+}
+
+.fade-up.animate {
   animation: fadeUpNoTranslate 1s ease-out forwards;
 }
 
 /* Khusus untuk elemen yang sudah punya translateX */
-.kota-responsive.fade-up,
-.pegang-jam-responsive.fade-up,
-.portofolio-responsive.fade-up {
+.kota-responsive.fade-up.animate,
+.pegang-jam-responsive.fade-up.animate,
+.portofolio-responsive.fade-up.animate {
   animation: fadeUp 1s ease-out forwards;
 }
 
@@ -191,15 +194,6 @@ section.row {
   }
 }
 
-/* Fade Up with data-delay support */
-.fade-up[data-delay] {
-  opacity: 0;
-}
-
-.fade-up.animate {
-  animation: fadeUpNoTranslate 1s ease-out forwards;
-}
-
 /* Scale In Animation */
 @keyframes scaleIn {
   from {
@@ -214,6 +208,9 @@ section.row {
 
 .scale-in {
   opacity: 0;
+}
+
+.scale-in.animate {
   animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
@@ -255,8 +252,10 @@ section.row {
 
 .slide-from-left {
   opacity: 0;
+}
+
+.slide-from-left.animate {
   animation: slideFromLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-  animation-delay: 0.2s;
 }
 
 /* Contact Link Hover Effects */
@@ -345,4 +344,15 @@ section.row {
     bottom: 8.5rem !important;
     width: 110% !important;
   }
+}
+
+.navbar-nav .nav-link.active {
+  background-color: #f0ad4e;
+  color: white !important; /* A distinct color */
+  border-radius: 2rem;
+  padding: 5px 10px 5px 10px;
+}
+
+.navbar-nav {
+  gap: 2rem;
 }
