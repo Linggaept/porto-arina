@@ -60,6 +60,237 @@ section.row {
   width: 100%;
 }
 
+/* Fade Up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+@keyframes fadeUpNoTranslate {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUpNoTranslate 1s ease-out forwards;
+}
+
+/* Khusus untuk elemen yang sudah punya translateX */
+.kota-responsive.fade-up,
+.pegang-jam-responsive.fade-up,
+.portofolio-responsive.fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+/* Myself Image Hover Effect */
+.myself-img {
+  transition: transform 0.3s ease;
+  animation: subtleBlink 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.myself-img:hover {
+  transform: scale(1.05);
+  animation: none;
+}
+
+/* Subtle Blink Animation */
+@keyframes subtleBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* Typing Animation */
+.typing-text {
+  opacity: 0;
+}
+
+.typing-text.active {
+  opacity: 1;
+}
+
+.typing-paragraph {
+  opacity: 0;
+  overflow: hidden;
+  white-space: normal;
+  margin-bottom: 1rem;
+}
+
+.typing-paragraph.typing {
+  opacity: 1;
+  animation: typing 3s steps(150) forwards, blink 0.75s step-end infinite;
+  border-right: 2px solid white;
+}
+
+.typing-paragraph.typed {
+  opacity: 1;
+  border-right: none;
+}
+
+/* Movie Link Image Hover */
+.movie-link-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-link-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Watch Button Styling */
+.watch-btn {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  padding: 8px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.watch-btn:hover {
+  background-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.watch-btn i {
+  font-size: 1.1em;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Fade Up with data-delay support */
+.fade-up[data-delay] {
+  opacity: 0;
+}
+
+.fade-up.animate {
+  animation: fadeUpNoTranslate 1s ease-out forwards;
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-in {
+  opacity: 0;
+  animation: scaleIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Gallery Image Hover Effect */
+.gallery-img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.gallery-img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  position: relative;
+}
+
+/* CV Image hover */
+.cv-image {
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.cv-image:hover {
+  transform: scale(1.05);
+}
+
+/* Slide From Left Animation untuk Skate */
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+.slide-from-left {
+  opacity: 0;
+  animation: slideFromLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation-delay: 0.2s;
+}
+
+/* Contact Link Hover Effects */
+.contact-link {
+  text-decoration: none;
+  transition: transform 0.3s ease, padding-left 0.3s ease;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+.contact-link:hover {
+  transform: translateX(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.contact-link p {
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover p {
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Contact Icon Animation */
+.contact-icon {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.contact-link:hover .contact-icon {
+  transform: scale(1.2) rotate(5deg);
+  filter: brightness(1.2);
+}
+
 /* Mobile styles - zoom 100% */
 @media screen and (max-width: 768px) {
   .nama-intro-responsive {

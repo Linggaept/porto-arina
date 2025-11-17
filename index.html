@@ -10,244 +10,22 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <style>
-      a {
-        text-decoration: none;
-        color: white;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-      }
-
-      section {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100vw;
-        margin: 0 !important;
-        padding: 0;
-        position: relative;
-      }
-
-      section.row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100vw !important;
-        max-width: 100vw !important;
-      }
-
-      #page-1 {
-        background-image: url(assets/img/page-1/background\ 1.png);
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* Default styles untuk desktop - tidak diubah */
-      .nama-intro-responsive {
-        width: auto;
-      }
-
-      .jalan-responsive {
-        width: 100%;
-      }
-
-      .portofolio-responsive {
-        width: 30%;
-      }
-
-      .pegang-jam-responsive {
-        width: 20%;
-      }
-
-      .kota-responsive {
-        width: 100%;
-      }
-
-      /* Fade Up Animation */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(50px) translateX(-50%);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) translateX(-50%);
-        }
-      }
-
-      @keyframes fadeUpNoTranslate {
-        from {
-          opacity: 0;
-          transform: translateY(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .fade-up {
-        opacity: 0;
-        animation: fadeUpNoTranslate 1s ease-out forwards;
-      }
-
-      /* Khusus untuk elemen yang sudah punya translateX */
-      .kota-responsive.fade-up,
-      .pegang-jam-responsive.fade-up,
-      .portofolio-responsive.fade-up {
-        animation: fadeUp 1s ease-out forwards;
-      }
-
-      /* Myself Image Hover Effect */
-      .myself-img {
-        transition: transform 0.3s ease;
-        animation: subtleBlink 3s ease-in-out infinite;
-        cursor: pointer;
-      }
-
-      .myself-img:hover {
-        transform: scale(1.05);
-        animation: none;
-      }
-
-      /* Subtle Blink Animation */
-      @keyframes subtleBlink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.85;
-        }
-      }
-
-      /* Typing Animation */
-      .typing-text {
-        opacity: 0;
-      }
-
-      .typing-text.active {
-        opacity: 1;
-      }
-
-      .typing-paragraph {
-        opacity: 0;
-        overflow: hidden;
-        white-space: normal;
-        margin-bottom: 1rem;
-      }
-
-      .typing-paragraph.typing {
-        opacity: 1;
-        animation: typing 3s steps(150) forwards, blink 0.75s step-end infinite;
-        border-right: 2px solid white;
-      }
-
-      .typing-paragraph.typed {
-        opacity: 1;
-        border-right: none;
-      }
-
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes blink {
-        50% {
-          border-color: transparent;
-        }
-      }
-
-      /* Fade Up with data-delay support */
-      .fade-up[data-delay] {
-        opacity: 0;
-      }
-
-      .fade-up.animate {
-        animation: fadeUpNoTranslate 1s ease-out forwards;
-      }
-
-      /* Mobile styles - zoom 100% */
-      @media screen and (max-width: 768px) {
-        .nama-intro-responsive {
-          width: 60%;
-          max-width: 300px;
-        }
-
-        .jalan-responsive {
-          width: 100rem;
-          height: 10rem;
-        }
-
-        .kota-responsive {
-          width: 100%;
-          bottom: 100rem !important;
-        }
-
-        .pegang-jam-responsive {
-          width: 40%;
-          max-width: 200px;
-          bottom: 8rem !important;
-        }
-
-        .portofolio-responsive {
-          width: 50%;
-          max-width: 250px;
-          bottom: 18rem !important;
-          left: 50% !important;
-        }
-      }
-
-      /* Extra small devices */
-      @media screen and (max-width: 576px) {
-        .nama-intro-responsive {
-          width: 70%;
-          max-width: 280px;
-        }
-
-        .pegang-jam-responsive {
-          width: 45%;
-          bottom: 10rem !important;
-          left: 14rem !important;
-        }
-
-        .portofolio-responsive {
-          width: 65%;
-          bottom: 20rem !important;
-          right: 50% !important;
-        }
-
-        .kota-responsive {
-          bottom: 8.5rem !important;
-          width: 110% !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style></style>
   </head>
   <body style="margin: 0; padding: 0; overflow-x: hidden">
     <div style="position: fixed; width: 100%; top: 0; left: 0; z-index: 1000">
       <div id="navbar-placeholder"></div>
     </div>
-    <section id="page-1" class="min-vh-100">
+          
+    <section id="page-1" class="min-vh-100" style="background-image: url(assets/img/page-1/background\ 1.png);">
       <img
         src="assets/img/page-1/nama-intro.png"
         alt="nama-intro"
-        style="margin-top: 3rem; animation-delay: 0.3s"
+        style="
+          margin-top: 3rem;
+          animation-delay: 0.3s;
+        "
         class="d-block mx-auto nama-intro-responsive fade-up"
       />
       <img
@@ -384,6 +162,8 @@
           height: 80%;
           margin-top: 5rem;
         "
+        class="fade-up cv-image"
+        data-delay="0.2"
       />
     </section>
 
@@ -402,6 +182,7 @@
             src="assets/img/page-4/photography.png"
             alt=""
             style="width: auto; height: auto; margin-top: 3rem"
+            class="scale-in"
           />
         </div>
       </div>
@@ -420,32 +201,36 @@
                 <img
                   src="assets/img/page-4/jeruk nipis 1.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 100%; height: auto; object-fit: cover"
+                  data-delay="0.2"
                 />
               </div>
               <div class="col-3">
                 <img
                   src="assets/img/page-4/jeruk nipis 2.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 100%; height: auto; object-fit: cover"
+                  data-delay="0.3"
                 />
               </div>
               <div class="col-3">
                 <img
                   src="assets/img/page-4/sawah 1.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 100%; height: auto; object-fit: cover"
+                  data-delay="0.4"
                 />
               </div>
               <div class="col-3">
                 <img
                   src="assets/img/page-4/sawah 2.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 50%; height: 90%; object-fit: cover"
+                  data-delay="0.5"
                 />
               </div>
             </div>
@@ -456,32 +241,36 @@
                 <img
                   src="assets/img/page-4/jeruk nipis 3.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 100%; height: auto; object-fit: cover"
+                  data-delay="0.6"
                 />
               </div>
               <div class="col-3">
                 <img
                   src="assets/img/page-4/jeruk nipis 4.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 100%; height: auto; object-fit: cover"
+                  data-delay="0.7"
                 />
               </div>
               <div class="col-3">
                 <img
                   src="assets/img/page-4/sawah 3.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 45%; height: 98%; object-fit: cover"
+                  data-delay="0.8"
                 />
               </div>
               <div class="col-3">
                 <img
                   src="assets/img/page-4/sawah 4.png"
                   alt=""
-                  class="img-fluid"
+                  class="img-fluid gallery-img fade-up"
                   style="width: 100%; height: auto; object-fit: cover"
+                  data-delay="0.9"
                 />
               </div>
             </div>
@@ -492,15 +281,16 @@
             <img
               src="assets/img/page-4/beringer.png.png"
               alt=""
-              class="img-fluid"
+              class="img-fluid gallery-img fade-up"
               style="width: 70%; max-width: 290px; height: auto"
+              data-delay="1"
             />
           </div>
         </div>
 
         <div class="" style="position: absolute; max-width: 100%; top: 10">
           <div class="row mx-auto" style="max-width: 90%; margin-top: px">
-            <div class="col-md-4">
+            <div class="col-md-4 fade-up" data-delay="1.2">
               <img
                 src="assets/img/page-4/ibu petani jeruk nipis.png"
                 alt=""
@@ -521,7 +311,7 @@
                 fruits of her hard work and dedication to her land.
               </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 fade-up" data-delay="1.4">
               <img
                 src="assets/img/page-4/petani sawah.png"
                 alt=""
@@ -538,7 +328,7 @@
                 our efforts help others.
               </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 fade-up" data-delay="1.6">
               <img
                 src="assets/img/page-4/beringer.png"
                 alt=""
@@ -559,7 +349,7 @@
     </section>
 
     <section
-      id="mini-movie"
+      id="3d-artworks"
       class="min-vh-100"
       style="
         background-image: url(assets/img/page-5/bg\ 5.jpg);
@@ -572,6 +362,7 @@
             src="assets/img/page-5/3d art works.png"
             alt=""
             style="width: auto; height: auto; margin-top: 3rem"
+            class="scale-in"
           />
         </div>
       </div>
@@ -580,26 +371,48 @@
         class="d-flex flex-row gap-4"
         style="position: relative; left: 5rem; top: 5rem"
       >
-        <img src="assets/img/page-5/3d 1.png.png" alt="" style="width: 25%" />
+        <img
+          src="assets/img/page-5/3d 1.png.png"
+          alt=""
+          style="width: 25%"
+          class="gallery-img fade-up"
+          data-delay="0.2"
+        />
         <div class="d-flex flex-column gap-4" style="margin-right: 20px">
           <img
             src="assets/img/page-5/3d 2.png.png"
             alt=""
             style="width: 120%"
+            class="gallery-img fade-up"
+            data-delay="0.3"
           />
           <img
             src="assets/img/page-5/3d 3.png.png"
             alt=""
             style="width: 120%"
+            class="gallery-img fade-up"
+            data-delay="0.4"
           />
         </div>
-        <img src="assets/img/page-5/3d 4.png.png" alt="" style="width: 25%" />
-        <img src="assets/img/page-5/3d 5.png.png" alt="" style="width: 25%" />
+        <img
+          src="assets/img/page-5/3d 4.png.png"
+          alt=""
+          style="width: 25%"
+          class="gallery-img fade-up"
+          data-delay="0.5"
+        />
+        <img
+          src="assets/img/page-5/3d 5.png.png"
+          alt=""
+          style="width: 25%"
+          class="gallery-img fade-up"
+          data-delay="0.6"
+        />
       </div>
 
       <div class="" style="position: absolute; max-width: 100%; top: 10">
         <div class="row mx-auto" style="max-width: 90%; margin-top: 9rem">
-          <div class="col-md-6">
+          <div class="col-md-6 fade-up" data-delay="0.8">
             <img
               src="assets/img/page-5/sakti gonjong ungu.png"
               alt=""
@@ -620,7 +433,7 @@
               theme.
             </p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 fade-up" data-delay="1">
             <img
               src="assets/img/page-5/purple neighboorhood.png"
               alt=""
@@ -642,7 +455,7 @@
     </section>
 
     <section
-      id="3d-artworks"
+      id="mini-movie"
       class="min-vh-100"
       style="
         background-image: url(assets/img/page-6/bg\ 6.jpg);
@@ -655,6 +468,7 @@
             src="assets/img/page-6/mini movie.png"
             alt=""
             style="width: auto; height: auto; margin-top: 3rem"
+            class="scale-in"
           />
         </div>
       </div>
@@ -664,34 +478,82 @@
         style="position: relative; left: 5rem; top: 7rem; width: 90%"
       >
         <div class="d-flex flex-column gap-4">
-          <img src="assets/img/page-6/Asset 6.png" alt="" style="width: 100%" />
-          <img src="assets/img/page-6/Asset 5.png" alt="" style="width: 100%" />
+          <img
+            src="assets/img/page-6/Asset 6.png"
+            alt=""
+            style="width: 100%"
+            class="gallery-img fade-up"
+            data-delay="0.2"
+          />
+          <img
+            src="assets/img/page-6/Asset 5.png"
+            alt=""
+            style="width: 100%"
+            class="gallery-img fade-up"
+            data-delay="0.3"
+          />
         </div>
-        <img
-          src="assets/img/page-6/Asset 7.png"
-          alt=""
-          style="width: 30%; height: auto"
-        />
-        <img
-          src="assets/img/page-6/Asset 3.png"
-          alt=""
-          style="width: 30%; height: auto"
-        />
+        <a
+          href="https://youtu.be/t0NyjRzFOkA"
+          target="_blank"
+          class="text-decoration-none"
+          style="width: 73%"
+        >
+          <img
+            src="assets/img/page-6/Asset 7.png"
+            alt=""
+            style="width: 100%; height: auto"
+            class="gallery-img fade-up"
+            data-delay="0.4"
+          />
+        </a>
+        <a
+          href="https://youtu.be/t0NyjRzFOkA"
+          target="_blank"
+          class="text-decoration-none"
+          style="width: 66%"
+        >
+          <img
+            src="assets/img/page-6/Asset 3.png"
+            alt=""
+            style="width: 100%; height: auto"
+            class="gallery-img fade-up"
+            data-delay="0.5"
+          />
+        </a>
         <div class="d-flex flex-column gap-4" style="margin-right: 20px">
-          <img src="assets/img/page-6/Asset 4.png" alt="" style="width: 100%" />
-          <img src="assets/img/page-6/Asset 2.png" alt="" style="width: 100%" />
+          <img
+            src="assets/img/page-6/Asset 4.png"
+            alt=""
+            style="width: 100%"
+            class="gallery-img fade-up"
+            data-delay="0.6"
+          />
+          <img
+            src="assets/img/page-6/Asset 2.png"
+            alt=""
+            style="width: 100%"
+            class="gallery-img fade-up"
+            data-delay="0.7"
+          />
         </div>
       </div>
 
       <div class="" style="position: absolute; max-width: 100%; top: 10">
-        <div class="row mx-auto" style="max-width: 90%; margin-top: 9rem">
-          <div class="col-md-6">
-            <img
-              src="assets/img/page-6/rengkuh.png"
-              alt=""
-              class="p-0 m-0 d-block"
-              style="margin-left: 0; margin-right: auto"
-            />
+        <div class="row mx-auto" style="max-width: 90%; margin-top: 11rem">
+          <div class="col-md-6 fade-up" data-delay="0.9">
+            <a
+              href="https://youtu.be/t0NyjRzFOkA"
+              target="_blank"
+              class="text-decoration-none"
+            >
+              <img
+                src="assets/img/page-6/rengkuh.png"
+                alt=""
+                class="p-0 m-0 d-block movie-link-img"
+                style="margin-left: 0; margin-right: auto"
+              />
+            </a>
             <p
               style="font-size: 11px; margin-top: -1.5rem"
               class="fw-bolder text-white"
@@ -707,13 +569,19 @@
               stronger.
             </p>
           </div>
-          <div class="col-md-6">
-            <img
-              src="assets/img/page-6/karma.png"
-              alt=""
-              class="p-0 m-0 d-block"
-              style="margin-left: 0; margin-right: auto"
-            />
+          <div class="col-md-6 fade-up" data-delay="1.1">
+            <a
+              href="https://youtu.be/t0NyjRzFOkA"
+              target="_blank"
+              class="text-decoration-none"
+            >
+              <img
+                src="assets/img/page-6/karma.png"
+                alt=""
+                class="p-0 m-0 d-block movie-link-img"
+                style="margin-left: 0; margin-right: auto"
+              />
+            </a>
             <p
               style="font-size: 11px; margin-top: -1.5rem"
               class="fw-bolder text-white"
@@ -746,6 +614,7 @@
             src="assets/img/page-7/illustration design.png"
             alt=""
             style="width: auto; height: auto; margin-top: 3rem"
+            class="scale-in"
           />
         </div>
       </div>
@@ -755,23 +624,25 @@
           <img
             src="assets/img/page-7/mural.png.PNG"
             alt=""
-            class="img-fluid"
+            class="img-fluid gallery-img fade-up"
             style="max-width: 45rem"
+            data-delay="0.2"
           />
         </div>
         <div class="col-md-6">
           <img
             src="assets/img/page-7/final illustration.jpg.jpg"
             alt=""
-            class="img-fluid"
+            class="img-fluid gallery-img fade-up"
             style="max-width: 25rem; margin-left: 5rem"
+            data-delay="0.4"
           />
         </div>
       </div>
 
       <div class="" style="position: absolute; max-width: 100%; top: 10">
         <div class="row mx-auto" style="max-width: 90%; margin-top: 5rem">
-          <div class="col-md-6">
+          <div class="col-md-6 fade-up" data-delay="0.6">
             <img
               src="assets/img/page-7/mural harmony.png"
               alt=""
@@ -783,7 +654,7 @@
               class="fw-bolder text-white"
             >
               For my final exam illustration design, I created a mural with the
-              theme of 'Harmony,' inspired by Mary Blair's 'It’s a Small World,'
+              theme of 'Harmony,' inspired by Mary Blair's 'It's a Small World,'
               which unites different cultures. I adapted this to Indonesian
               culture, highlighting its diversity. In the story, a Minang person
               is worried about rowing his boat, fearing failure, but other
@@ -793,7 +664,7 @@
               together.
             </p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 fade-up" data-delay="0.8">
             <img
               src="assets/img/page-7/discovering my Art style.png.png"
               alt=""
@@ -836,13 +707,15 @@
               margin-top: 3rem;
               margin-bottom: 0;
             "
+            class="scale-in"
           />
 
           <p
-            class="text-white fw-normal"
+            class="text-white fw-normal fade-up"
             style="font-size: 25px; max-width: 40%; margin-top: -4rem"
+            data-delay="0.3"
           >
-            If anything catches your eye and you’d like to connect, just reach
+            If anything catches your eye and you'd like to connect, just reach
             me through the contact panel on the right.
           </p>
         </div>
@@ -850,42 +723,68 @@
 
       <div
         class="d-flex flex-column justify-content-end gap-4"
-        style="position: absolute; right: 15%; transform: translateY(-90%)"
+        style="position: absolute; right: 15%; transform: translateY(-70%)"
       >
         <a
-          href="mailto:email@example.com"
-          class="d-flex align-items-center gap-4"
+          href="tel:+6282112455831"
+          class="d-flex align-items-center gap-4 contact-link fade-up"
           style="width: 90%"
+          data-delay="0.5"
         >
-          <img src="assets/img/page-8/email.png" alt="" style="width: 45px" />
-          <p>+62 821-1245-5831</p>
+          <img
+            src="assets/img/page-8/email.png"
+            alt=""
+            style="width: 45px"
+            class="contact-icon"
+          />
+          <p class="text-white fw-bold mb-0">+62 821-1245-5831</p>
         </a>
+
         <a
-          href="https://www.instagram.com/username"
-          target="_blank"
-          class="d-flex align-items-center gap-4"
+          href="mailto:amethystareena@gmail.com"
+          class="d-flex align-items-center gap-4 contact-link fade-up"
           style="width: 80%"
+          data-delay="0.6"
         >
-          <img src="assets/img/page-8/ig.png" alt="" style="width: 45px" />
-          <p>amethystareena@gmail.com</p>
+          <img
+            src="assets/img/page-8/ig.png"
+            alt=""
+            style="width: 45px"
+            class="contact-icon"
+          />
+          <p class="text-white fw-bold mb-0">amethystareena@gmail.com</p>
         </a>
+
         <a
-          href="https://www.linkedin.com/in/username"
+          href="https://www.instagram.com/mareenasauce/"
           target="_blank"
-          class="d-flex align-items-center gap-4"
+          class="d-flex align-items-center gap-4 contact-link fade-up"
           style="width: 80%"
+          data-delay="0.7"
         >
-          <img src="assets/img/page-8/in.png" alt="" style="width: 45px" />
-          <p>@mareenasauce</p>
+          <img
+            src="assets/img/page-8/in.png"
+            alt=""
+            style="width: 45px"
+            class="contact-icon"
+          />
+          <p class="text-white fw-bold mb-0">@mareenasauce</p>
         </a>
+
         <a
-          href="https://wa.me/1234567890"
+          href="https://www.linkedin.com/in/arina-kamila-nadhira-72b600328/"
           target="_blank"
-          class="d-flex align-items-center gap-4"
+          class="d-flex align-items-center gap-4 contact-link fade-up"
           style="width: 90%"
+          data-delay="0.8"
         >
-          <img src="assets/img/page-8/wa.png" alt="" style="width: 45px" />
-          <p>Arina Kamila Nadhira</p>
+          <img
+            src="assets/img/page-8/wa.png"
+            alt=""
+            style="width: 45px"
+            class="contact-icon"
+          />
+          <p class="text-white fw-bold mb-0">Arina Kamila Nadhira</p>
         </a>
       </div>
 
@@ -893,6 +792,8 @@
         src="assets/img/page-8/road.png"
         alt=""
         style="width: 100%; margin-top: 10rem"
+        class="fade-up"
+        data-delay="0.2"
       />
       <img
         src="assets/img/page-8/skate.png"
@@ -904,6 +805,7 @@
           transform: translateX(-50%);
           width: 320px;
         "
+        class="slide-from-left"
       />
     </section>
   </body>

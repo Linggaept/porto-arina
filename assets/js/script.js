@@ -69,4 +69,75 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".typing-text").forEach((el) => {
     typingObserver.observe(el);
   });
+
+  document.querySelectorAll("#mini-movie .scale-in").forEach((el) => {
+    const scaleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          scaleObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    scaleObserver.observe(el);
+  });
+
+  document.querySelectorAll("#mini-movie .fade-up").forEach((el) => {
+    fadeUpObserver.observe(el);
+  });
+
+  document.querySelectorAll("#curriculum-vitae .fade-up").forEach((el) => {
+    fadeUpObserver.observe(el);
+  });
+
+  // Scale in dan fade up elements di photography
+  document.querySelectorAll("#photography .scale-in").forEach((el) => {
+    const scaleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          scaleObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    scaleObserver.observe(el);
+  });
+
+  document.querySelectorAll("#photography .fade-up").forEach((el) => {
+    fadeUpObserver.observe(el);
+  });
+
+  // Scale in, fade up, dan slide from left elements di contact-me
+  document.querySelectorAll("#contact-me .scale-in").forEach((el) => {
+    const scaleObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          scaleObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    scaleObserver.observe(el);
+  });
+
+  document.querySelectorAll("#contact-me .fade-up").forEach((el) => {
+    fadeUpObserver.observe(el);
+  });
+
+  // Slide from left untuk skate
+  document.querySelectorAll("#contact-me .slide-from-left").forEach((el) => {
+    const slideObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = "running";
+          slideObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    slideObserver.observe(el);
+  });
 });
